@@ -1,16 +1,10 @@
 package baguchan.betterheight;
 
 import com.google.common.collect.Maps;
-import net.minecraft.client.gui.screens.worldselection.WorldPreset;
-import net.minecraft.core.Registry;
 import net.minecraft.data.BuiltinRegistries;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.OverworldBiomeSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
@@ -35,14 +29,6 @@ public class BetterHeight
     public static final String MODID = "betterheight";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger(MODID);
-
-    public static final WorldPreset NORMAL = new WorldPreset(new TranslatableComponent("betterheight.test")) {
-        protected ChunkGenerator generator(Registry<Biome> p_101580_, Registry<NoiseGeneratorSettings> p_101581_, long p_101582_) {
-            return new NoiseBasedChunkGenerator(new OverworldBiomeSource(p_101582_, false, false, p_101580_), p_101582_, () -> {
-                return p_101581_.getOrThrow(NoiseGeneratorSettings.OVERWORLD);
-            });
-        }
-    };
 
     public BetterHeight() {
         // Register the setup method for modloading
