@@ -74,7 +74,7 @@ public class BetterHeight {
     public static NoiseGeneratorSettings netherLikePreset(StructureSettings p_158554_, BlockState p_158555_, BlockState p_158556_) {
         Map<StructureFeature<?>, StructureFeatureConfiguration> map = Maps.newHashMap(NoiseGeneratorSettings.bootstrap().structureSettings().structureConfig());
         map.put(StructureFeature.RUINED_PORTAL, new StructureFeatureConfiguration(25, 10, 34222645));
-        return new NoiseGeneratorSettings(new StructureSettings(Optional.ofNullable(p_158554_.stronghold()), map), NoiseSettings.create(-64, 256, new NoiseSamplingSettings(1.0D, 3.0D, 80.0D, 60.0D), new NoiseSlideSettings(120, 3, 0), new NoiseSlideSettings(320, 4, -1), 1, 2, 0.0D, 0.019921875D, false, false, false, false), p_158555_, p_158556_, 0, 0, 32, 0, false, false, false, false, false, false);
+        return new NoiseGeneratorSettings(new StructureSettings(Optional.ofNullable(p_158554_.stronghold()), map), NoiseSettings.create(-64, 256, new NoiseSamplingSettings(1.0D, 3.0D, 80.0D, 60.0D), new NoiseSlideSettings(120, 3, 0), new NoiseSlideSettings(320, 8, -1), 1, 2, 0.0D, 0.019921875D, false, false, false, false), p_158555_, p_158556_, 0, 0, 32, 0, false, false, false, false, false, false);
     }
 
 
