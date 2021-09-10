@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 
 public class ModConfiguredFeatures {
-	public static final ConfiguredFeature<?, ?> ORE_DEBRIS_UNDER = register(BetterHeight.MODID + ":ore_debris_under", Feature.SCATTERED_ORE.configured(new OreConfiguration(OreConfiguration.Predicates.NETHER_ORE_REPLACEABLES, Blocks.ANCIENT_DEBRIS.defaultBlockState(), 5, 1.0F)).rangeTriangle(VerticalAnchor.bottom(), VerticalAnchor.absolute(0)).squared());
+	public static final ConfiguredFeature<?, ?> ORE_DEBRIS_UNDER = register(BetterHeight.MODID + ":ore_debris_under", Feature.SCATTERED_ORE.configured(new OreConfiguration(OreConfiguration.Predicates.NETHER_ORE_REPLACEABLES, Blocks.ANCIENT_DEBRIS.defaultBlockState(), 6, 1.0F)).rangeTriangle(VerticalAnchor.bottom(), VerticalAnchor.absolute(0)).squared());
 
 	public static void init() {
 
