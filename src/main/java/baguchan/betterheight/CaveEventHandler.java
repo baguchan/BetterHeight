@@ -3,6 +3,7 @@ package baguchan.betterheight;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
@@ -22,6 +23,11 @@ public class CaveEventHandler {
 
 			if (BiomeDictionary.hasType(biome, BiomeDictionary.Type.NETHER)) {
 				event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModConfiguredFeatures.ORE_ANCIENT_DEBRIS_UNDER_LARGE);
+
+				event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModConfiguredFeatures.PATCH_FIRE);
+				if (biome == Biomes.SOUL_SAND_VALLEY) {
+					event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION, ModConfiguredFeatures.PATCH_SOUL_FIRE);
+				}
 			}
 		}
 	}
