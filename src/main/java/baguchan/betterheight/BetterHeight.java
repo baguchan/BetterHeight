@@ -11,7 +11,9 @@ import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.feature.StructureFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.StructureFeatureConfiguration;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
@@ -39,6 +41,8 @@ public class BetterHeight {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BetterHeightConfig.COMMON_SPEC);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -49,7 +53,7 @@ public class BetterHeight {
     public static NoiseGeneratorSettings netherLikePreset(StructureSettings p_158554_, BlockState p_158555_, BlockState p_158556_) {
         Map<StructureFeature<?>, StructureFeatureConfiguration> map = Maps.newHashMap(NoiseGeneratorSettings.bootstrap().structureSettings().structureConfig());
         map.put(StructureFeature.RUINED_PORTAL, new StructureFeatureConfiguration(25, 10, 34222645));
-        return new NoiseGeneratorSettings(new StructureSettings(Optional.empty(), map), NoiseSettings.create(-64, 256, new NoiseSamplingSettings(1.0D, 3.0D, 80.0D, 60.0D), new NoiseSlider(0.9375D, 3, 0), new NoiseSlider(2.5D, 8, -1), 1, 2, false, false, false, TerrainProvider.nether()), Blocks.NETHERRACK.defaultBlockState(), Blocks.LAVA.defaultBlockState(), SurfaceRuleData.nether(), 32, false, false, false, false, false, true);
+        return new NoiseGeneratorSettings(new StructureSettings(Optional.empty(), map), NoiseSettings.create(-64, 256, new NoiseSamplingSettings(1.0D, 3.0D, 80.0D, 60.0D), new NoiseSlider(0.9375D, 3, 0), new NoiseSlider(2.5D, 8, -1), 1, 2, false, false, false, TerrainProvider.nether()), Blocks.NETHERRACK.defaultBlockState(), Blocks.LAVA.defaultBlockState(), SurfaceRuleData.nether(), 32, false, BetterHeightConfig.COMMON.caveAndCliffLike.get(), BetterHeightConfig.COMMON.caveAndCliffLike.get(), false, BetterHeightConfig.COMMON.caveAndCliffLike.get(), true);
     }
 
 
